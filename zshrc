@@ -106,3 +106,6 @@ PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export JAVA_HOME JRE_HOME PATH CLASSPATH
 
 alias vi=nvim
+alias ss="sudo sslocal -c ~/script/ss.json -d start"
+alias ress="sudo sslocal -c ~/script/ss.json -d restart"
+alias stss="sudo sslocal -c ~/script/ss.json -d stop"
