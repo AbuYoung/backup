@@ -1,0 +1,111 @@
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'majutsushi/tagbar'
+Plug 'jrosiek/vim-mark'
+
+call plug#end()
+
+set clipboard=unnamed
+set so=10
+filetype on
+filetype plugin on
+filetype indent on
+:set nu
+syntax on
+
+set list lcs=tab:\¦\
+
+if has("autocmd")
+	autocmd BufReadPost *
+		 \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+		 \exe "normal g'\"" |
+		 \endif
+endif
+
+set completeopt=longest,menu
+
+if has('mouse')
+	set mouse=a
+	set selectmode=mouse,key
+	set nomousehide
+endif
+
+set autoindent
+set modeline
+set cursorline
+set cursorcolumn
+
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+set showmatch
+set matchtime=0
+set nobackup
+set nowritebackup
+
+if has('nvim')
+	set ttimeout
+	set ttimeoutlen=0
+endif
+
+set fenc=utf-8
+set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp
+set enc=utf-8
+
+set foldmethod=syntax
+set foldcolumn=0
+set foldlevel=100
+nnoremap <space> @=((foldclosed(line(',')) < 0) ? 'zc' : 'zo')<CR>
+
+set smartcase
+set ignorecase
+set nohlsearch
+set nohlsearch
+set autochdir
+
+vmap j gj
+vmap k gk
+nmap j gj
+nmap k gk
+
+nmap T :tabnew<cr>
+
+
+"YouCompleteMe
+let g:ycm_server_python_interpreter='/usr/bin/python2.7'
+let g:ycm_global_ycm_extra_conf='~/.config/nvim/plugged/.ycm_extra_conf.py'
+
+"NerdTree
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+"Rainbow_parenthese
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0

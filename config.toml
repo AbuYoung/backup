@@ -1,0 +1,49 @@
+baseURL = "https://abuyoung.github.io/"
+
+title = "Blue Oasis"
+copyright = "(c) 2018 abuyoung"
+langugae = "zh-CN"
+metaDataFormat = "toml"
+
+# pagination
+paginate = 10
+paginatePath = "page"
+
+tags = ["blog", "mood", "study"]
+features = ["blog", "themes"]
+theme = "hyde-y"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+    code = "/:slug/"
+
+[taxonomies]
+    tag = "tags"
+    topic = "topics"
+
+[author]
+    name = "abuyoung"
+    email = "abuyoung@outlook.com"
+
+[params]
+    brand = "Blue Oasis"
+    topline = "欢迎来到这片荒芜的绿洲"
+    footline = "code with sad"
+
+    # Sidebar
+    sidebar = "left"
+
+    home = "Home"
+
+    highlight = "default"
+
+    github = "abuyoung"
+
+    rss = "true"
+
+[blackfriday]
+    angledQuotes = true
+    fractions = false
+    hrefTargetBlank = false
+    latexDashes = true
+    plainIdAnchors = true
