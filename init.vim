@@ -10,8 +10,24 @@ Plug 'scrooloose/syntastic'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
+Plug 'bigeagle/molokai'
 
 call plug#end()
+
+if !exists("g:vimrc_loaded")
+    colorscheme molokai
+    let g:molokai_original = 1
+    if has("gui_running")
+        set guioptions-=T "隐藏工具栏
+        set guioptions-=L
+        set guioptions-=r
+        set guioptions-=m
+        set gfn=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 10
+        set gfw=STHeiti\ 9
+        set langmenu=en_US
+        set linespace=0
+    endif " has
+endif " exists(...)
 
 set clipboard=unnamed
 set so=10
@@ -41,7 +57,6 @@ endif
 set autoindent
 set modeline
 set cursorline
-set cursorcolumn
 
 set shiftwidth=4
 set tabstop=4
@@ -82,7 +97,7 @@ nmap T :tabnew<cr>
 
 "YouCompleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python2.7'
-let g:ycm_global_ycm_extra_conf='~/.config/nvim/plugged/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.ycm_build/.ycm_extra_conf.py'
 
 "NerdTree
 let g:NERDTreeDirArrowExpandable = '▸'
