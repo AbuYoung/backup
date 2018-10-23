@@ -1,0 +1,9 @@
+{
+	"server":"172.104.131.33",
+	"port":"8389",
+	"plugin":"obfs-local",
+	"plugin_opts":"obfs=http;obfs-host=www.bing.com",
+	"method":"chacha20",
+	"password":"cnmgfw..",
+	"timeout":600
+}
