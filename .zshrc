@@ -111,5 +111,4 @@ alias ress="sudo sslocal -c ~/ss/ss.json -d restart"
 alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
 alias tlpac="sudo tlp ac"
 alias tlpbat="sudo tlp bat"
-alias sshFrank="ssh root@172.104.131.33"
 #export /usr/bin/X11/eclim

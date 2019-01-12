@@ -97,7 +97,7 @@ nmap T :tabnew<cr>
 
 "YouCompleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python2.7'
-let g:ycm_global_ycm_extra_conf='~/.ycm_build/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 
 "NerdTree
 let g:NERDTreeDirArrowExpandable = '▸'
