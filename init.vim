@@ -11,6 +11,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
 Plug 'bigeagle/molokai'
+Plug 'majutsushi/tagbar'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
