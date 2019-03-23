@@ -13,6 +13,11 @@ Plug 'jrosiek/vim-mark'
 Plug 'bigeagle/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'cespare/vim-toml'
+Plug 'hdima/python-syntax'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'fatih/vim-go'
+Plug 'lervag/vim-latex'
+Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
@@ -32,11 +37,11 @@ if !exists("g:vimrc_loaded")
 endif " exists(...)
 
 set clipboard=unnamed
-set so=10
+set so=15
 filetype on
 filetype plugin on
 filetype indent on
-:set nu
+set nu
 syntax on
 
 set list lcs=tab:\¦\
@@ -98,7 +103,8 @@ nmap T :tabnew<cr>
 
 
 "YouCompleteMe
-let g:ycm_server_python_interpreter='/usr/bin/python2.7'
+let g:ycm_server_python_interpreter='/usr/bin/python3'
+"let g:ycm_server_python_interpreter='~/miniconda3/envs/test/bin/python3.6'
 let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 
 "NerdTree
