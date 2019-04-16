@@ -112,9 +112,9 @@ alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
 alias tlpac="sudo tlp ac"
 alias tlpbat="sudo tlp bat"
 alias update="sudo pacman -Syyu"
-#export /usr/bin/X11/eclim
+alias search="sudo pacman -Ss"
+alias pinstall="sudo pacman -S"
 
-#export PATH=/home/abu/miniconda3/bin:$PATH
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unsetproxy="unset ALL_PROXY"
 alias ip="curl -i http://ip.cn"

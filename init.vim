@@ -103,7 +103,7 @@ nmap T :tabnew<cr>
 
 
 "YouCompleteMe
-let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_server_python_interpreter='/usr/bin/python'
 "let g:ycm_server_python_interpreter='~/miniconda3/envs/test/bin/python3.6'
 let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 
