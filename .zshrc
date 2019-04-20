@@ -111,10 +111,16 @@ alias ress="sudo sslocal -c ~/ss/ss.json -d restart"
 alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
 alias tlpac="sudo tlp ac"
 alias tlpbat="sudo tlp bat"
-alias update="sudo pacman -Syyu"
-alias search="sudo pacman -Ss"
-alias pinstall="sudo pacman -S"
+alias update="sudo apt update %% sudo apt upgrade"
+alias search="sudo apt search"
+alias aptinstall="sudo apt install"
 
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unsetproxy="unset ALL_PROXY"
 alias ip="curl -i http://ip.cn"
+
+#JDK
+export JAVA_HOME=~/jdk
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/libz:${JRE_HOME}/lib
+export PATH=.:${JAVA_HOME}/bin:$PATH
