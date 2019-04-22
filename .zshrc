@@ -97,21 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#Java
-#JAVA_HOME=/usr/java/jdk
-#JRE_HOME=$JAVA_HOME/jre
-#JAVA_BIN=$JAVA_HOME/bin
-#CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
-#PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-#export JAVA_HOME JRE_HOME PATH CLASSPATH
+PATH=$PATH:/snap/bin
 
 alias vi=nvim
-alias ss="sudo sslocal -c ~/ss/ss.json -d start"
-alias ress="sudo sslocal -c ~/ss/ss.json -d restart"
-alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
+#alias ss="sudo sslocal -c ~/ss/ss.json -d start"
+#alias ress="sudo sslocal -c ~/ss/ss.json -d restart"
+#alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
 alias tlpac="sudo tlp ac"
 alias tlpbat="sudo tlp bat"
-alias update="sudo apt update %% sudo apt upgrade"
+alias aptupdate="sudo apt update"
+alias aptupgrade="sudo apt upgrade"
 alias search="sudo apt search"
 alias aptinstall="sudo apt install"
 
@@ -122,5 +117,8 @@ alias ip="curl -i http://ip.cn"
 #JDK
 export JAVA_HOME=~/jdk
 export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/libz:${JRE_HOME}/lib
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=.:${JAVA_HOME}/bin:$PATH
+
+#GlassFish
+export AS_JAVA=~/jdk
