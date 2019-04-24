@@ -17,7 +17,10 @@ Plug 'hdima/python-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'fatih/vim-go'
 Plug 'lervag/vim-latex'
-Plug 'kchmck/vim-coffee-script'
+"Plug 'kchmck/vim-coffee-script'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -87,6 +90,7 @@ set foldmethod=syntax
 set foldcolumn=0
 set foldlevel=100
 nnoremap <space> @=((foldclosed(line(',')) < 0) ? 'zc' : 'zo')<CR>
+"空格键代替zc进行折叠，zo进行打开
 
 set smartcase
 set ignorecase
@@ -99,11 +103,11 @@ vmap k gk
 nmap j gj
 nmap k gk
 
-nmap T :tabnew<cr>
+nmap T :tabnew<CR>
 
 
 "YouCompleteMe
-let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_server_python_interpreter='/usr/bin/python3'
 "let g:ycm_server_python_interpreter='~/miniconda3/envs/test/bin/python3.6'
 let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 
