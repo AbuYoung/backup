@@ -98,8 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
+# go 环境变量
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/hugo
 
+# java 环境变量
 export PATH=$PATH:/usr/local/java/bin
 export PATH=$PATH:/usr/local/java/jre/bin
