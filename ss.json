@@ -1,7 +1,0 @@
-{
-	"server":"109.237.27.29",
-	"server_port":"12306",
-	"method":"aes-256-cfb",
-	"password":"cnmgfw..",
-	"timeout":600
-}
