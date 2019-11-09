@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/abu/.oh-my-zsh"
+export ZSH="/home/abu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -26,8 +26,14 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -62,9 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,9 +89,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -96,31 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-PATH=$PATH:/snap/bin
-
 alias vi=nvim
-#alias ss="sudo sslocal -c ~/ss/ss.json -d start"
-#alias ress="sudo sslocal -c ~/ss/ss.json -d restart"
-#alias stss="sudo sslocal -c ~/ss/ss.json -d stop"
-alias tlpac="sudo tlp ac"
-alias tlpbat="sudo tlp bat"
-alias aptupdate="sudo apt update"
-alias aptupgrade="sudo apt upgrade"
-alias search="sudo apt search"
-alias aptinstall="sudo apt install"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/hugo
 
-alias finddir="sudo find / -name"
-
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias unsetproxy="unset ALL_PROXY"
-alias ip="curl -i http://ip.cn"
-
-#JDK
-export JAVA_HOME=~/jdk
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=.:${JAVA_HOME}/bin:$PATH
-
-#GlassFish
-export AS_JAVA=~/jdk
+export PATH=$PATH:/usr/local/java/bin
+export PATH=$PATH:/usr/local/java/jre/bin
