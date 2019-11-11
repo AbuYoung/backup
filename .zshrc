@@ -98,10 +98,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
-# go 环境变量
+alias py=python3
+alias pip=pip3
+
+alias aptupdate="sudo apt update"
+alias aptupgrade="sudo apt upgrade"
+alias aptinstall="sudo apt install"
+alias search="apt search"
+
+export PATH=$PATH:/usr/local/tools/nvim-linux64/bin
+
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/hugo
 
-# java 环境变量
 export PATH=$PATH:/usr/local/java/bin
 export PATH=$PATH:/usr/local/java/jre/bin

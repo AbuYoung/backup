@@ -16,7 +16,7 @@ Plug 'cespare/vim-toml'
 Plug 'hdima/python-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'fatih/vim-go'
-Plug 'lervag/vim-latex'
+"Plug 'lervag/vim-latex'"
 "Plug 'kchmck/vim-coffee-script'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'godlygeek/tabular'
@@ -40,6 +40,7 @@ if !exists("g:vimrc_loaded")
 endif " exists(...)
 
 set clipboard=unnamed
+
 set so=15
 filetype on
 filetype plugin on
@@ -108,6 +109,7 @@ nmap T :tabnew<CR>
 
 "YouCompleteMe
 let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:python3_host_prog='/usr/bin/python3'
 "let g:ycm_server_python_interpreter='~/miniconda3/envs/test/bin/python3.6'
 let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 
