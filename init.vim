@@ -1,15 +1,26 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'ncm2/ncm2'
+" v2 of the nvim-completion-manager.
+Plug 'roxma/nvim-yarp'
+" LanguageServer client for NeoVim.
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+Plug 'ncm2/ncm2-pyclang'
+Plug 'ncm2/ncm2-path'
+Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-jedi'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
-Plug 'Yggdroot/indentLine'
-"Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'Yggdroot/indentLine' 会导致js下，冒号隐藏
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
 Plug 'bigeagle/molokai'
 Plug 'majutsushi/tagbar'
@@ -17,13 +28,11 @@ Plug 'cespare/vim-toml'
 Plug 'hdima/python-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'fatih/vim-go'
-"Plug 'lervag/vim-latex'"
-"Plug 'kchmck/vim-coffee-script'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 call plug#end()
+
+set shell=/bin/sh
 
 if !exists("g:vimrc_loaded")
     colorscheme molokai
@@ -58,7 +67,7 @@ if has("autocmd")
 		 \endif
 endif
 
-set completeopt=longest,menu
+"set completeopt=longest,menu
 
 if has('mouse')
 	set mouse=a
@@ -97,7 +106,6 @@ nnoremap <space> @=((foldclosed(line(',')) < 0) ? 'zc' : 'zo')<CR>
 set smartcase
 set ignorecase
 set nohlsearch
-set nohlsearch
 set autochdir
 
 vmap j gj
@@ -107,58 +115,51 @@ nmap k gk
 
 nmap T :tabnew<CR>
 
-
-"YouCompleteMe
-let g:ycm_server_python_interpreter='/usr/bin/python3'
+"Python
 let g:python3_host_prog='/usr/bin/python3'
-"let g:ycm_server_python_interpreter='~/miniconda3/envs/test/bin/python3.6'
-let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
+let g:python_host_prog='/usr/bin/python2'
 
 "NerdTree
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-"Rainbow_parenthese
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+"ncm2
+" Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
-" coc.nvim
-set hidden " if hidden is not set, TextEdit might fall
+set completeopt=noinsert,menuone,noselect
 
-set cmdheight=2 " Better display for message
+" ncm2-pyclang
+let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.9'
+" a list of relative paths for compile_commands.json
+let g:ncm2_pyclang#database_path = [
+            \ 'compile_commands.json',
+            \ 'build/compile_commands.json'
+            \ ]
+" a list of relative paths looking for .clang_complete
+let g:ncm2_pyclang#args_file_path = ['.clang_complete']
+" Goto Declaration
+autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
+let g:ncm2_pyclang#gcc_path = '/usr/bin/gcc'
 
-set updatetime=300 " You will have the bad experience for diagnostic message when it's default 4000
+"javascript-typescript-langserver
+let g:LanguageClient_serverCommands = {
+  \ 'typescript': ['javascript-typescript-stdio']
+  \ }
 
-set signcolumn=yes " always show signcolumns
+"Java Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction<Paste>
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+
+"Jedi
+let g:ncm2_jedi#python_version 
 
