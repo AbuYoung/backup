@@ -99,14 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
 alias py=python3
-alias pip=pip3
+#alias pip=pip3
 
-alias aptupdate="sudo apt update"
-alias aptupgrade="sudo apt upgrade"
-alias aptinstall="sudo apt install"
-alias search="apt search"
+#alias aptupdate="sudo apt update"
+#alias aptupgrade="sudo apt upgrade"
+#alias aptinstall="sudo apt install"
+#alias search="apt search"
 
-export PATH=$PATH:/usr/local/tools/nvim-linux64/bin
+#export PATH=$PATH:/usr/local/tools/nvim-linux64/bin
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/hugo
